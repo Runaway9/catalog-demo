@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-青屿优选 — 商品插画生成脚本
+Runaway — 商品插画生成脚本
 ===========================================================================
-用 Pillow 程序化绘制 35 张原创商品插画（640×640 PNG），风格统一、无版权风险。
+用 Pillow 程序化绘制商品插画（640×640 PNG），风格统一、无版权风险。
 
-    python tools/gen_images.py
+    python tools/gen_images.py            # 生成全部
+    python tools/gen_images.py --sheet    # 顺便输出预览大图
 
 生成结果写入 assets/img/，文件名与 assets/js/data.js 中的 img 字段一一对应。
-改完脚本重新运行即可整体刷新商品图。
+当前站点只在用 placeholder.png（统一占位图），其余条目是为旧版演示商品保留的，
+需要时可以删掉 CATALOG 里对应的行再运行本脚本。
 """
 
 import colorsys
@@ -816,6 +818,25 @@ def p_beauty_towel(c):
     c.dots([(120, 200), (96, 232)], c.light, 8)
 
 
+def p_placeholder(c):
+    """统一占位图：没有真实图片的商品都用它。"""
+    c.shadow(320, 500, 150, 13)
+    # 箱体
+    c.rrect([178, 252, 462, 462], 18, fill=c.body)
+    c.rrect([178, 252, 462, 462], 18, outline=c.deep, width=3)
+    # 箱盖
+    c.rrect([160, 196, 480, 264], 12, fill=c.light)
+    c.rrect([160, 196, 480, 264], 12, outline=c.deep, width=3)
+    # 封箱胶带
+    c.rrect([300, 196, 340, 462], 6, fill=c.accent)
+    c.line([(320, 196), (320, 462)], c.deep, 3)
+    # 中央标记
+    c.rrect([258, 318, 382, 388], 12, fill=c.pale)
+    c.ell([300, 336, 340, 368], fill=c.light)
+    c.line([(266, 410), (374, 410)], c.light, 5)
+    c.dots([(140, 210), (116, 244)], c.light, 8)
+
+
 # ================================================================== 商品表
 # (文件名, 绘制函数, 色相, 饱和度, 主强调色)
 CATALOG = [
@@ -860,6 +881,9 @@ CATALOG = [
     ('beauty-handcream.png', p_beauty_handcream, 0.77, 0.30, '#E76F51'),
     ('beauty-toothbrush.png', p_beauty_toothbrush, 0.53, 0.38, '#3E7CB1'),
     ('beauty-towel.png',     p_beauty_towel,     0.36, 0.32, '#E9A23B'),
+
+    # 统一占位图（没有真实图片的商品都使用它）
+    ('placeholder.png',      p_placeholder,      0.58, 0.13, '#8A94A6'),
 ]
 
 

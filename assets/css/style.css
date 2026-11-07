@@ -1,5 +1,5 @@
 /* ==========================================================================
-   青屿优选 — 静态商品目录样式表
+   Runaway — 静态商品目录样式表
    原生 CSS，无预处理器。移动端优先，桌面端在 900px 以上逐级增强。
    ========================================================================== */
 
@@ -190,9 +190,14 @@ a { color: var(--brand); }
   background: var(--brand);
   border-radius: 999px;
   padding: 2px 10px;
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .notice-title { font-size: 14.5px; color: var(--ink); }
+
+/* 只有标题、没有正文时，标题本身承担全部信息，稍微放大一点 */
+.notice--title-only .notice-title { font-size: 15.5px; font-weight: 700; }
 
 .notice-list {
   margin: 0;
@@ -470,6 +475,13 @@ a { color: var(--brand); }
 .chip-hot { background: #ffeceb; color: var(--price-dark); border-color: #ffd2cf; font-weight: 600; }
 .chip-new { background: #e7f7f1; color: #0e7a58; border-color: #c3ebdd; font-weight: 600; }
 .chip-stock { background: #f2f6ff; color: #47639c; border-color: #dde6f8; }
+.chip-instock { background: #e7f7f1; color: #0e7a58; border-color: #c3ebdd; font-weight: 600; }
+.chip-out { background: #ffeceb; color: var(--price-dark); border-color: #ffd2cf; font-weight: 600; }
+
+/* 缺货商品：缩略图与价格做淡化处理，状态标签保持醒目 */
+.product.is-out .product-thumb { opacity: .55; filter: grayscale(.55); }
+.product.is-out .product-name { color: var(--ink-2); }
+.product.is-out .price-now { color: var(--ink-3); }
 
 .product-price {
   grid-area: price;

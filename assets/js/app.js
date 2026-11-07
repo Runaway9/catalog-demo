@@ -1,5 +1,5 @@
 /* ==========================================================================
-   青屿优选 — 目录交互脚本
+   Runaway — 目录交互脚本
    分类筛选与关键词搜索全部在浏览器内完成，不依赖任何后端或网络请求。
    商品数据来自同目录下的 data.js（window.CATALOG_DATA）。
    ========================================================================== */
@@ -72,6 +72,10 @@
 
   /* ------------------------------------------------------------ 元素引用 */
   var el = {
+    siteName: document.getElementById('siteName'),
+    siteSlogan: document.getElementById('siteSlogan'),
+    footerName: document.getElementById('footerName'),
+    noticeTitle: document.getElementById('noticeTitle'),
     noticeList: document.getElementById('noticeList'),
     tabs: document.getElementById('tabs'),
     searchInput: document.getElementById('searchInput'),
@@ -86,13 +90,35 @@
     modalBody: document.getElementById('modalBody')
   };
 
+  /* ------------------------------------------------------------ 站点信息 */
+  function renderSite() {
+    var site = data.site || {};
+    if (el.siteName && site.name) el.siteName.textContent = site.name;
+    if (el.siteSlogan && site.slogan) el.siteSlogan.textContent = site.slogan;
+    if (el.footerName && site.name) {
+      el.footerName.textContent = site.name + (site.slogan ? ' · ' + site.slogan : '');
+    }
+    if (document.title && site.name) {
+      document.title = site.name + (site.slogan ? ' · ' + site.slogan : '');
+    }
+  }
+
   /* ------------------------------------------------------------ 公告渲染 */
   function renderNotice() {
-    if (!el.noticeList || !data.site) return;
-    var lines = data.site.notice || [];
-    el.noticeList.innerHTML = lines.map(function (line) {
-      return '<li>' + esc(line) + '</li>';
-    }).join('');
+    if (!data.site) return;
+    var site = data.site;
+    var title = site.noticeTitle || '';
+    var lines = site.notice || [];
+
+    if (el.noticeTitle) el.noticeTitle.textContent = title;
+    if (el.noticeList) {
+      el.noticeList.innerHTML = lines.map(function (line) {
+        return '<li>' + esc(line) + '</li>';
+      }).join('');
+      el.noticeList.hidden = lines.length === 0;
+    }
+    var box = document.querySelector('.notice');
+    if (box) box.classList.toggle('notice--title-only', lines.length === 0);
   }
 
   /* ------------------------------------------------------------ 标签渲染 */
@@ -122,6 +148,7 @@
       catName(p.cat),
       p.desc || '',
       p.tag || '',
+      stockStatus(p),
       (p.keywords || []).join(' ')
     ].join(' ').toLowerCase();
   }
@@ -157,10 +184,23 @@
     return 'chip chip-tag';
   }
 
+  /* 库存状态：库存为 0 一律显示「缺货」 */
+  function isOut(p) {
+    return Number(p.stock) === 0 || p.stockStatus === '缺货';
+  }
+
+  function stockStatus(p) {
+    return isOut(p) ? '缺货' : (p.stockStatus || '有货');
+  }
+
   function productRow(p) {
     var row = document.createElement('article');
     row.className = 'product';
     row.dataset.id = p.id;
+
+    // 库存为 0（或状态为缺货）时整行做缺货样式
+    var out = isOut(p);
+    if (out) row.className += ' is-out';
 
     var thumb = document.createElement('div');
     thumb.className = 'product-thumb';
@@ -186,8 +226,11 @@
     var meta = document.createElement('div');
     meta.className = 'product-meta';
     meta.appendChild(chip('chip-cat', catName(p.cat)));
+    meta.appendChild(chip(out ? 'chip chip-out' : 'chip chip-instock', stockStatus(p)));
     if (p.tag) meta.appendChild(chip(tagClass(p.tag), p.tag));
-    meta.appendChild(chip('chip-stock', '库存 ' + p.stock));
+    if (p.stock !== null && p.stock !== undefined) {
+      meta.appendChild(chip('chip-stock', '库存 ' + p.stock));
+    }
     main.appendChild(meta);
 
     row.appendChild(main);
@@ -214,7 +257,10 @@
 
   function chip(cls, text) {
     var s = document.createElement('span');
-    s.className = cls;
+    // 基础类 chip 负责胶囊形状（圆角/内边距/边框），其余类只负责配色
+    var classes = String(cls).split(/\s+/).filter(Boolean);
+    if (classes.indexOf('chip') === -1) classes.unshift('chip');
+    s.className = classes.join(' ');
     s.textContent = text;
     return s;
   }
@@ -351,8 +397,12 @@
     html += '</div>';
     html += '<div class="product-meta">';
     html += '<span class="chip chip-cat">' + esc(catName(p.cat)) + '</span>';
+    html += '<span class="' + (isOut(p) ? 'chip chip-out' : 'chip chip-instock') + '">' +
+            esc(stockStatus(p)) + '</span>';
     if (p.tag) html += '<span class="' + tagClass(p.tag) + '">' + esc(p.tag) + '</span>';
-    html += '<span class="chip chip-stock">库存 ' + esc(p.stock) + '</span>';
+    if (p.stock !== null && p.stock !== undefined) {
+      html += '<span class="chip chip-stock">库存 ' + esc(p.stock) + '</span>';
+    }
     html += '</div>';
     html += '</div></div>';
 
@@ -366,8 +416,9 @@
       html += '</tbody></table>';
     }
 
-    html += '<p class="detail-foot">本页面为静态演示，不提供购买、支付或配送服务。' +
-            '如需修改该商品，请编辑 <code>assets/js/data.js</code>。</p>';
+    html += '<p class="detail-foot">本页面为静态目录，不提供在线购买、支付或配送服务。' +
+            '如需修改该商品，请更新 <code>Runaway.xlsx</code> 后重新运行 ' +
+            '<code>python tools/sync_data.py</code>。</p>';
 
     el.modalBody.innerHTML = html;
     el.modalBody.querySelector('#detailImg').appendChild(makeImg(p.img, p.name));
@@ -434,6 +485,7 @@
   }
 
   /* ------------------------------------------------------------ 启动 */
+  renderSite();
   renderNotice();
   bind();
   render();

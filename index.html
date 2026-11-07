@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>青屿优选 · 小而美的日常好物（静态演示）</title>
-<meta name="description" content="青屿优选静态演示站：家居、户外、数码、厨房、文具、服饰与美妆分类的商品目录，分类与搜索均在浏览器内完成。">
+<title>Runaway</title>
+<meta name="description" content="Runaway 账号与礼品卡商品目录：分类筛选与关键词搜索均在浏览器内完成，静态页面，不提供在线购买。">
 <meta name="theme-color" content="#2563eb">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M9 13h14l-1.6 10.4a2 2 0 0 1-2 1.6h-6.8a2 2 0 0 1-2-1.6z' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linejoin='round'/%3E%3Cpath d='M12.5 13a3.5 3.5 0 0 1 7 0' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='23' font-family='Helvetica,Arial,sans-serif' font-size='19' font-weight='bold' fill='%23fff' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -19,17 +19,17 @@
       <span class="brand-mark" aria-hidden="true">
         <svg viewBox="0 0 32 32" width="30" height="30" focusable="false">
           <rect width="32" height="32" rx="9" fill="#2563eb"></rect>
-          <path d="M9 13h14l-1.6 10.4a2 2 0 0 1-2 1.6h-6.8a2 2 0 0 1-2-1.6z" fill="none" stroke="#fff" stroke-width="2.1" stroke-linejoin="round"></path>
-          <path d="M12.5 13a3.5 3.5 0 0 1 7 0" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round"></path>
+          <text x="16" y="23" font-family="Helvetica, Arial, sans-serif" font-size="19"
+                font-weight="bold" fill="#fff" text-anchor="middle">R</text>
         </svg>
       </span>
       <span class="brand-text">
-        <span class="brand-name">青屿优选</span>
-        <span class="brand-slogan">小而美的日常好物</span>
+        <span class="brand-name" id="siteName">Runaway</span>
+        <span class="brand-slogan" id="siteSlogan">账号与礼品卡目录</span>
       </span>
     </a>
     <div class="header-side">
-      <span class="demo-chip" title="本站为演示站，不提供真实的购买、支付与物流服务">静态演示</span>
+      <span class="demo-chip" title="本站为静态页面，不提供在线购买功能">静态页面</span>
       <a class="header-link" href="#catalog">商品目录</a>
     </div>
   </div>
@@ -39,7 +39,7 @@
   <div class="notice" role="note" aria-label="站点公告">
     <div class="notice-head">
       <span class="notice-badge">公告</span>
-      <strong class="notice-title">青屿优选 · 演示站点说明</strong>
+      <strong class="notice-title" id="noticeTitle"></strong>
     </div>
     <ul class="notice-list" id="noticeList"></ul>
   </div>
@@ -76,8 +76,8 @@
 </main>
 
 <footer class="site-footer">
-  <p class="footer-name">青屿优选 · 静态演示</p>
-  <p class="footer-note">本站所有商品、价格、库存与图片均为虚构演示内容，仅用于展示前端目录结构，不提供真实的购买、支付、物流或售后服务。</p>
+  <p class="footer-name" id="footerName">Runaway · 账号与礼品卡目录</p>
+  <p class="footer-note">本站为静态页面，仅展示商品目录，不提供在线购买、支付与配送；如需购买请通过公告中的联系方式联系。</p>
   <p class="footer-meta">原生 HTML / CSS / JavaScript · 无构建步骤 · 可直接部署到任意静态托管</p>
 </footer>
 
