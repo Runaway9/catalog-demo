@@ -175,6 +175,14 @@
     name.textContent = p.name;
     main.appendChild(name);
 
+    // 简介：仅在桌面宽屏显示（CSS 控制），窄屏自动隐藏
+    if (p.desc) {
+      var desc = document.createElement('p');
+      desc.className = 'product-desc';
+      desc.textContent = p.desc;
+      main.appendChild(desc);
+    }
+
     var meta = document.createElement('div');
     meta.className = 'product-meta';
     meta.appendChild(chip('chip-cat', catName(p.cat)));

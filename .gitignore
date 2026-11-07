@@ -13,3 +13,5 @@ node_modules/
 .gh-login.log
 tools/_contact_sheet.png
 .preview-*.png
+.shot.png
+.measure.py
