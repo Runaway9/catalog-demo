@@ -81,6 +81,15 @@
   <p class="footer-meta">原生 HTML / CSS / JavaScript · 无构建步骤 · 可直接部署到任意静态托管</p>
 </footer>
 
+<dialog class="welcome-dialog" id="welcomeDialog" aria-labelledby="welcomeTitle" aria-describedby="welcomeDescription">
+  <span class="notice-badge">访问提示</span>
+  <h2 id="welcomeTitle">本站商品没有实际购买功能</h2>
+  <p id="welcomeDescription">本站仅供浏览商品目录与详情。</p>
+  <form method="dialog">
+    <button class="btn-detail" type="submit" autofocus>我知道了</button>
+  </form>
+</dialog>
+
 <!-- 商品详情弹层 -->
 <div class="modal" id="modal" hidden>
   <div class="modal-backdrop" data-close></div>

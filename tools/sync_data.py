@@ -10,7 +10,7 @@
 * 「公告内容」工作表 -> site.noticeTitle（第一行数据）+ site.notice（正文，空行跳过）
 * 其余商品工作表     -> 每个工作表一个分类，工作簿内的行顺序即展示顺序
 * 「采集汇总」        -> 不作为商品来源，只用于核对数量
-* 商品没有图片列时统一使用 assets/img/placeholder.png
+* 商品没有可用图片时优先使用分类插图，其次使用统一占位图
 * 库存为 0 时，库存状态显示「缺货」
 """
 import io
@@ -134,9 +134,6 @@ def read_products(ws, sheet_name):
             candidate = cell_text(ws.cell(row=r, column=i_img + 1).value)
             if candidate and os.path.exists(os.path.join(ROOT, candidate.replace("/", os.sep))):
                 img = candidate
-        if not img:
-            img = PLACEHOLDER
-
         items.append({
             "name": name,
             "price": price,
@@ -186,6 +183,9 @@ def main():
             continue
         cid = SHEET_IDS.get(sheet_name, "cat%d" % (si + 1))
         categories.append({"id": cid, "name": sheet_name})
+        category_image = "assets/img/%s.svg" % cid
+        if not os.path.isfile(os.path.join(ROOT, category_image)):
+            category_image = PLACEHOLDER
         for i, it in enumerate(items, start=1):
             price = it["price"]
             specs = [
@@ -210,7 +210,7 @@ def main():
                 "stock": it["stock"],
                 "stockStatus": it["status"],
                 "tag": it["tag"] or None,
-                "img": it["img"],
+                "img": it["img"] or category_image,
                 "desc": desc,
                 "specs": specs,
             })

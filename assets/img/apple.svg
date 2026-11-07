@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#e1e9fb"/>
+      <stop offset="1" stop-color="#bacce9"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h160v160H0z"/>
+  <circle cx="134" cy="28" r="50" fill="#fff" opacity=".45"/>
+  <circle cx="16" cy="133" r="35" fill="#a0b7dd" opacity=".5"/>
+  <rect x="27" y="36" width="106" height="65" rx="15" fill="#f8fbff" stroke="#93abd5"/>
+  <rect x="37" y="47" width="40" height="43" rx="10" fill="#d5e2f8"/>
+  <circle cx="57" cy="62" r="7" fill="#42649a"/>
+  <path d="M45 80a12 12 0 0 1 24 0" fill="#42649a"/>
+  <path d="M87 59h34m-34 11h29m-29 11h21" stroke="#6a85b3" stroke-width="3" stroke-linecap="round"/>
+  <text x="80" y="135" text-anchor="middle" fill="#263e66" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="2">APPLE ID</text>
+</svg>

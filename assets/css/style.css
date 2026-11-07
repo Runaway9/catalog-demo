@@ -550,6 +550,26 @@ a { color: var(--brand); }
 .btn-ghost:hover { background: var(--brand-soft); }
 
 /* ------------------------------- 弹层 ------------------------------- */
+.welcome-dialog {
+  width: min(420px, calc(100% - 32px));
+  padding: clamp(20px, 5vw, 30px);
+  border: 1px solid var(--brand-line);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: var(--shadow-lg);
+}
+
+.welcome-dialog::backdrop {
+  background: rgba(17, 24, 39, .48);
+  backdrop-filter: blur(2px);
+}
+
+html:has(.welcome-dialog[open]) { overflow: hidden; }
+.welcome-dialog h2 { margin: 12px 0 6px; font-size: clamp(18px, 4.5vw, 22px); }
+.welcome-dialog p { margin: 0 0 20px; color: var(--ink-2); }
+.welcome-dialog form { text-align: right; }
+
 .modal {
   position: fixed;
   inset: 0;

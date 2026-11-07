@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#344663"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h160v160H0z"/>
+  <circle cx="140" cy="26" r="47" fill="#52719c" opacity=".24"/>
+  <circle cx="20" cy="132" r="36" fill="#52719c" opacity=".18"/>
+  <rect x="35" y="30" width="90" height="77" rx="20" fill="#111827" stroke="#7284a4"/>
+  <path d="M59 47h12l31 42H90L59 47Zm4 42 34-42" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="80" y="135" text-anchor="middle" fill="#e1ebfb" font-family="Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="2">X ACCOUNT</text>
+</svg>

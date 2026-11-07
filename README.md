@@ -62,7 +62,7 @@ python tools/sync_data.py
 - 分类标签的显示顺序见 `tools/sync_data.py` 里的 `SHEET_ORDER`；不在该列表里的表会按工作簿顺序追加在后面。
 - `库存` 为 0 的商品，页面统一显示「缺货」（无论 `库存状态` 列写的是什么）。
 - `售价（元）` 在页面上统一显示两位小数。
-- 商品表里如果加了 `图片路径` 列（值是相对路径且文件存在），就会用真实图片；否则统一使用 `assets/img/placeholder.png`。
+- 商品表可通过 `图片路径` 列指定本地图片。没有可用图片时，脚本按分类使用 `assets/img/<分类 ID>.svg`，没有分类插图时使用 `assets/img/placeholder.png`。
 
 ### 核对数据
 
@@ -105,7 +105,7 @@ python tools/gen_images.py --sheet
 ```
 
 脚本会用 Pillow 重新生成 `assets/img/` 下的 PNG（640×640），并输出一张预览大图。
-当前站点只用到 `placeholder.png`（统一占位图）。
+目录使用 `assets/img/` 中的分类 SVG 插图，`placeholder.png` 用作缺少分类插图时的后备图片。
 
 ## 部署到 GitHub Pages
 

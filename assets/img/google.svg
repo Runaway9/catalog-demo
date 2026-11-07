@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#e8f2ff"/>
+      <stop offset="1" stop-color="#c4dbfc"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h160v160H0z"/>
+  <circle cx="140" cy="27" r="49" fill="#fff" opacity=".58"/>
+  <circle cx="15" cy="128" r="37" fill="#a3c6fb" opacity=".36"/>
+  <rect x="31" y="34" width="98" height="70" rx="18" fill="#fff" stroke="#abc8f0"/>
+  <path d="M44 52v36" stroke="#4285f4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M116 52v36" stroke="#34a853" stroke-width="5" stroke-linecap="round"/>
+  <path d="m44 52 36 27 36-27" fill="none" stroke="#ea4335" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="80" y="135" text-anchor="middle" fill="#254d82" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="2">GOOGLE</text>
+</svg>

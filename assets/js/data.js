@@ -12,6 +12,8 @@ window.CATALOG_DATA = {
     slogan: "账号与礼品卡目录",
     noticeTitle: "本站商品没有实际购买功能，如需购买请联系下方联系方式",
     notice: [
+      "联系QQ：616007226",
+      "联系微信：AbyssalEcho",
     ]
   },
 
@@ -34,7 +36,7 @@ window.CATALOG_DATA = {
       stock: 178,
       stockStatus: "有货",
       tag: null,
-      img: "assets/img/placeholder.png",
+      img: "assets/img/twitter.svg",
       desc: "推特账号 · 库存 178 · 有货",
       specs: [
         ["分类", "推特账号"],
@@ -52,7 +54,7 @@ window.CATALOG_DATA = {
       stock: 174,
       stockStatus: "有货",
       tag: null,
-      img: "assets/img/placeholder.png",
+      img: "assets/img/twitter.svg",
       desc: "推特账号 · 库存 174 · 有货",
       specs: [
         ["分类", "推特账号"],
@@ -70,7 +72,7 @@ window.CATALOG_DATA = {
       stock: 200,
       stockStatus: "有货",
       tag: null,
-      img: "assets/img/placeholder.png",
+      img: "assets/img/apple.svg",
       desc: "苹果账号 · 库存 200 · 有货",
       specs: [
         ["分类", "苹果账号"],
@@ -88,7 +90,7 @@ window.CATALOG_DATA = {
       stock: 200,
       stockStatus: "有货",
       tag: null,
-      img: "assets/img/placeholder.png",
+      img: "assets/img/apple.svg",
       desc: "苹果账号 · 库存 200 · 有货",
       specs: [
         ["分类", "苹果账号"],
@@ -106,7 +108,7 @@ window.CATALOG_DATA = {
       stock: 207,
       stockStatus: "有货",
       tag: null,
-      img: "assets/img/placeholder.png",
+      img: "assets/img/apple.svg",
       desc: "苹果账号 · 库存 207 · 有货",
       specs: [
         ["分类", "苹果账号"],
@@ -124,7 +126,7 @@ window.CATALOG_DATA = {
       stock: 293,
       stockStatus: "有货",
       tag: null,
-      img: "assets/img/placeholder.png",
+      img: "assets/img/apple.svg",
       desc: "苹果账号 · 库存 293 · 有货",
       specs: [
         ["分类", "苹果账号"],
@@ -142,7 +144,7 @@ window.CATALOG_DATA = {
       stock: 1129,
       stockStatus: "有货",
       tag: null,
-      img: "assets/img/placeholder.png",
+      img: "assets/img/google.svg",
       desc: "谷歌账号 · 库存 1129 · 有货",
       specs: [
         ["分类", "谷歌账号"],
@@ -160,7 +162,7 @@ window.CATALOG_DATA = {
       stock: 562,
       stockStatus: "有货",
       tag: null,
-      img: "assets/img/placeholder.png",
+      img: "assets/img/google.svg",
       desc: "谷歌账号 · 库存 562 · 有货",
       specs: [
         ["分类", "谷歌账号"],
@@ -178,7 +180,7 @@ window.CATALOG_DATA = {
       stock: 138,
       stockStatus: "有货",
       tag: null,
-      img: "assets/img/placeholder.png",
+      img: "assets/img/gpt.svg",
       desc: "GPT系列 · 库存 138 · 有货",
       specs: [
         ["分类", "GPT系列"],
@@ -196,7 +198,7 @@ window.CATALOG_DATA = {
       stock: 89,
       stockStatus: "有货",
       tag: null,
-      img: "assets/img/placeholder.png",
+      img: "assets/img/gpt.svg",
       desc: "GPT系列 · 库存 89 · 有货",
       specs: [
         ["分类", "GPT系列"],
@@ -214,7 +216,7 @@ window.CATALOG_DATA = {
       stock: 545,
       stockStatus: "有货",
       tag: null,
-      img: "assets/img/placeholder.png",
+      img: "assets/img/gpt.svg",
       desc: "GPT系列 · 库存 545 · 有货",
       specs: [
         ["分类", "GPT系列"],
@@ -232,7 +234,7 @@ window.CATALOG_DATA = {
       stock: 1614,
       stockStatus: "有货",
       tag: null,
-      img: "assets/img/placeholder.png",
+      img: "assets/img/gpt.svg",
       desc: "GPT系列 · 库存 1614 · 有货",
       specs: [
         ["分类", "GPT系列"],
@@ -250,7 +252,7 @@ window.CATALOG_DATA = {
       stock: 1614,
       stockStatus: "有货",
       tag: null,
-      img: "assets/img/placeholder.png",
+      img: "assets/img/gpt.svg",
       desc: "GPT系列 · 库存 1614 · 有货",
       specs: [
         ["分类", "GPT系列"],
@@ -268,7 +270,7 @@ window.CATALOG_DATA = {
       stock: 200,
       stockStatus: "有货",
       tag: null,
-      img: "assets/img/placeholder.png",
+      img: "assets/img/itunes-giftcard.svg",
       desc: "苹果礼品卡（可充值GPT） · 库存 200 · 有货",
       specs: [
         ["分类", "苹果礼品卡（可充值GPT）"],
@@ -286,7 +288,7 @@ window.CATALOG_DATA = {
       stock: 200,
       stockStatus: "有货",
       tag: null,
-      img: "assets/img/placeholder.png",
+      img: "assets/img/itunes-giftcard.svg",
       desc: "苹果礼品卡（可充值GPT） · 库存 200 · 有货",
       specs: [
         ["分类", "苹果礼品卡（可充值GPT）"],

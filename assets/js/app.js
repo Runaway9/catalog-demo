@@ -439,6 +439,27 @@
     lastFocused = null;
   }
 
+  function showWelcome() {
+    var dialog = document.getElementById('welcomeDialog');
+    var seenKey = 'runaway.catalog.welcomeSeen';
+    if (!dialog || typeof dialog.showModal !== 'function') return;
+
+    try {
+      if (window.localStorage.getItem(seenKey)) return;
+    } catch (error) {
+      // 存储被禁用时仍显示提示。
+    }
+
+    dialog.addEventListener('close', function () {
+      try {
+        window.localStorage.setItem(seenKey, '1');
+      } catch (error) {
+        // 无法记住关闭状态时仍可继续浏览。
+      }
+    }, { once: true });
+    dialog.showModal();
+  }
+
   /* ------------------------------------------------------------ 事件绑定 */
   function bind() {
     if (el.searchInput) {
@@ -489,4 +510,5 @@
   renderNotice();
   bind();
   render();
+  showWelcome();
 })();
