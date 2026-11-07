@@ -15,4 +15,6 @@ tools/_contact_sheet.png
 .preview-*.png
 .shot.png
 .measure.py
-������ѡ.xlsx
+
+# 导出的 Excel 工作簿（由 tools/build_xlsx.py 生成）
+青屿优选.xlsx
